@@ -3,9 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "scripts": {
-    "start": "nodemon --exec babel-node index.js --delay 2"
-  },
+  "type": "module",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/twmwvision/wetube.git"
@@ -15,8 +13,17 @@
   "bugs": {
     "url": "https://github.com/twmwvision/wetube/issues"
   },
+  "scripts": {
+    "start": "nodemon babel-node index.js"
+  },
   "homepage": "https://github.com/twmwvision/wetube#readme",
   "dependencies": {
+    "@babel/core": "^7.12.10",
+    "@babel/node": "^7.12.10",
+    "@babel/preset-env": "^7.12.11",
     "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.6"
   }
 }
