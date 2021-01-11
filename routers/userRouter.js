@@ -1,7 +1,6 @@
 import express from "express";
 import routes from "../routes.js";
 import {
-  users,
   userDetail,
   editProfile,
   changePassword,
@@ -9,9 +8,8 @@ import {
 
 const userRouter = express.Router();
 
-userRouter.get(routes.home, users);
 userRouter.get(routes.editProfile, editProfile);
 userRouter.get(routes.changePassword, changePassword);
-userRouter.get(routes.userDetail, userDetail); //이 코드를 마지막에?
+userRouter.get(routes.userDetail, userDetail);
 
 export default userRouter;

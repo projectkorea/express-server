@@ -6,7 +6,7 @@ const LOGOUT = "/logout";
 const SEARCH = "/search";
 
 // users = //semi root
-const USERS = "/users"; //root
+const USERS = "/users";
 const USERS_DETAIL = "/:id";
 const EDIT_PROFILE = "/edit-profile";
 const CHANGE_PASSWORD = "/change-password";
