@@ -1,11 +1,10 @@
-import { videos } from "../db.js";
+import { enlistedVideos } from "../db.js";
 
 export const home = (req, res) =>
-  res.render("home", { pageTitle: "Home", videos });
+  res.render("home", { pageTitle: "Home", videos: enlistedVideos });
 
 export const search = (req, res) => {
   const searchingFor = req.query.term;
-  // const { query : {term: SearchingFor}} = req;
   res.render("search", { pageTitle: "Search", searchingFor: searchingFor });
 };
 export const upload = (req, res) =>

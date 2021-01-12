@@ -1,4 +1,4 @@
-export const videos = [
+export const enlistedVideos = [
   {
     title: "Video awesome",
     description: "This is something I love",
