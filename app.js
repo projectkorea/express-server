@@ -3,14 +3,24 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import session from "express-session";
+import { localsMiddleware } from "./middlewares.js";
+import routes from "./routes.js";
 import userRouter from "./routers/userRouter.js";
 import videoRouter from "./routers/videoRouter.js";
 import globalRouter from "./routers/globalRouter.js";
-import routes from "./routes.js";
 const app = express();
 
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
+app.set("view engine", "pug");
 app.use(morgan("dev"));
+<<<<<<< HEAD
 app.use(helmet());
+=======
+>>>>>>> 0f251272ea19c2b1c866f7c65c804b12d02f3372
 app.use(cookieParser());
 app.use(
   session({
@@ -23,6 +33,7 @@ app.use(
     },
   })
 );
+app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
