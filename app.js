@@ -11,7 +11,7 @@ const app = express();
 
 app.use(morgan("dev"));
 app.use(helmet());
-app.use(cookieParser("dev"));
+app.use(cookieParser());
 app.use(
   session({
     resave: false,
@@ -24,9 +24,8 @@ app.use(
   })
 );
 
-app.use(routes.home, globalRouter); // -> globalRouter -> express.Router().get -> middleware console.log
-//get에서도 미들웨어가 존재한다는 말?
+app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
-//app.use(path, middleware)
+
 export default app;
