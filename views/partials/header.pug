@@ -1,10 +1,13 @@
 header.header
-  .header__column <!--div 생략에 클래스네임 추가 -->
-    a(href=routes.home)
-      i.fab.fa-youtube
-  .header__coulmn
-    ul
-      li
-        a(href=routes.join) Join
-      li
-        a(href=routes.login) Log in
+    .header__column 
+        a(href=routes.home)
+            i.fab.fa-youtube
+    .header__coulmn
+        form(action=routes.search, method='get')
+            input(type="text", placeholder="Search it!", name="term")
+    .header__coulmn
+        ul
+            li
+                a(href=routes.join) Join
+            li
+                a(href=routes.login) Log in

@@ -10,7 +10,11 @@ import videoRouter from "./routers/videoRouter.js";
 import globalRouter from "./routers/globalRouter.js";
 const app = express();
 
-app.use(helmet());
+app.use(
+  helmet({
+    contentSecurityPolicy: false,
+  })
+);
 app.set("view engine", "pug");
 app.use(morgan("dev"));
 app.use(cookieParser());
