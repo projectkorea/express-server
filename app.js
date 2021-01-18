@@ -17,10 +17,6 @@ app.use(
 );
 app.set("view engine", "pug");
 app.use(morgan("dev"));
-<<<<<<< HEAD
-app.use(helmet());
-=======
->>>>>>> 0f251272ea19c2b1c866f7c65c804b12d02f3372
 app.use(cookieParser());
 app.use(
   session({

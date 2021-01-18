@@ -1,5 +1,3 @@
-import { enlistedVideos } from "../db.js";
-
 export const home = (req, res) =>
   res.render("home", { pageTitle: "Home", videos: enlistedVideos });
 
