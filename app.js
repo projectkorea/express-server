@@ -8,6 +8,7 @@ import routes from "./routes.js";
 import userRouter from "./routers/userRouter.js";
 import videoRouter from "./routers/videoRouter.js";
 import globalRouter from "./routers/globalRouter.js";
+import bodyParser from "body-parser";
 const app = express();
 
 app.use(
@@ -18,6 +19,8 @@ app.use(
 app.set("view engine", "pug");
 app.use(morgan("dev"));
 app.use(cookieParser());
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use(
   session({
     resave: false,

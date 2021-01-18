@@ -1,3 +1,9 @@
+<<<<<<< HEAD
+=======
+import { enlistedVideos } from "../db.js";
+import routes from "../routes.js";
+
+>>>>>>> be0230461ad144b2f8e5aad6873589e54caf15cc
 export const home = (req, res) =>
   res.render("home", { pageTitle: "Home", videos: enlistedVideos });
 
@@ -5,8 +11,15 @@ export const search = (req, res) => {
   const searchingFor = req.query.term;
   res.render("search", { pageTitle: "Search", searchingFor: searchingFor });
 };
-export const upload = (req, res) =>
+export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
+
+export const postUpload = (req, res) => {
+  const postFile = req.body.file;
+  const postTitle = req.body.title;
+  const postDescripton = req.body.description;
+  res.redirect(routes.videoDetail(3111));
+};
 
 export const videoDetail = (req, res) =>
   res.render("videoDetail", { pageTitle: "VideoDetail" });
