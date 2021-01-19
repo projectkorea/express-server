@@ -1,24 +1,34 @@
-<<<<<<< HEAD
-=======
-import { enlistedVideos } from "../db.js";
 import routes from "../routes.js";
+import Video from "../models/Video.js";
 
->>>>>>> be0230461ad144b2f8e5aad6873589e54caf15cc
-export const home = (req, res) =>
-  res.render("home", { pageTitle: "Home", videos: enlistedVideos });
-
+export const home = async (req, res) => {
+  try {
+    const videos = await Video.find({});
+    res.render("home", { pageTitle: "Home", videos });
+  } catch (error) {
+    console.log(error);
+    res.render("home", { pageTitle: "Home", videos: [] });
+  }
+};
 export const search = (req, res) => {
   const searchingFor = req.query.term;
   res.render("search", { pageTitle: "Search", searchingFor: searchingFor });
 };
+
 export const getUpload = (req, res) =>
   res.render("upload", { pageTitle: "Upload" });
 
-export const postUpload = (req, res) => {
-  const postFile = req.body.file;
-  const postTitle = req.body.title;
-  const postDescripton = req.body.description;
-  res.redirect(routes.videoDetail(3111));
+export const postUpload = async (req, res) => {
+  const {
+    body: { title, description },
+    file: { path },
+  } = req;
+  const newVideo = await Video.create({
+    fileUrl: path,
+    title,
+    description,
+  });
+  res.redirect(routes.videoDetail(newVideo.id));
 };
 
 export const videoDetail = (req, res) =>

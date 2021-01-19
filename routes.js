@@ -13,7 +13,7 @@ const CHANGE_PASSWORD = "/change-password";
 
 // videos //semi root
 const VIDEOS = "/videos";
-const UPLOAD = "/upload";
+const UPLOAD = "/uploads";
 const VIDEO_DETAIL = "/:id";
 const EDIT_VIDEO = "/:id/edit";
 const DELETE_VIDEO = "/:id/delete";

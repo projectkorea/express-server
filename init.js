@@ -1,5 +1,7 @@
 import app from "./app.js";
 import "./db.js";
+import "./models/Video.js";
+import "./models/Comment.js";
 import dotenv from "dotenv";
 dotenv.config();
 
