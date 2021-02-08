@@ -11,14 +11,14 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twmwvision/wetube.git"
+    "url": "git+https://github.com/projectkorea/wetube.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/twmwvision/wetube/issues"
+    "url": "https://github.com/projectkorea/wetube/issues"
   },
-  "homepage": "https://github.com/twmwvision/wetube#readme",
+  "homepage": "https://github.com/projectkorea/wetube#readme",
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
