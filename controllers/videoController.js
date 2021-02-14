@@ -1,9 +1,3 @@
-<<<<<<< HEAD
-=======
-import { enlistedVideos } from "../db.js";
-import routes from "../routes.js";
-
->>>>>>> be0230461ad144b2f8e5aad6873589e54caf15cc
 export const home = (req, res) =>
   res.render("home", { pageTitle: "Home", videos: enlistedVideos });
 
