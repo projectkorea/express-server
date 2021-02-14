@@ -7,8 +7,7 @@ header.header
             input(type="text", placeholder="Search it!", name="term")
     .header__coulmn
         ul
-            if !user.isAuthenticated
-                li
+            if !user
                     a(href=routes.join) Join
                 li
                     a(href=routes.login) Log in
