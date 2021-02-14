@@ -5,10 +5,12 @@ import cookieParser from "cookie-parser";
 import session from "express-session";
 import { localsMiddleware } from "./middlewares.js";
 import routes from "./routes.js";
+import passport from "passport";
 import userRouter from "./routers/userRouter.js";
 import videoRouter from "./routers/videoRouter.js";
 import globalRouter from "./routers/globalRouter.js";
 import bodyParser from "body-parser";
+import "./passport";
 const app = express();
 
 app.use(
@@ -17,21 +19,18 @@ app.use(
   })
 );
 app.set("view engine", "pug");
+app.use("/uploads", express.static("uploads"));
 app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(
-  session({
-    resave: false,
-    saveUninitialized: false,
-    secret: "secret code",
-    cookie: {
-      httpOnly: true,
-      secure: false,
-    },
-  })
-);
+app.use(session{
+  secret: process.env.COOKIE_SECRET,
+  resave: true,
+  saveUninitialized: false
+})
+app.use(passport.initialize());
+app.use(passport.session());
 app.use(localsMiddleware);
 
 app.use(routes.home, globalRouter);

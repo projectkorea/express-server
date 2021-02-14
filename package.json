@@ -3,35 +3,57 @@
   "version": "1.0.0",
   "description": "",
   "main": "index.js",
-  "type": "module",
   "scripts": {
-    "start": "nodemon babel-node init.js"
+    "dev:server": "nodemon --exec npx babel-node init.js",
+    "dev:assets": "cross-env WEBPACK_ENV=development webpack -w",
+    "build:assets": "cross-env WEBPACK_ENV=production webpack"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/twmwvision/wetube.git"
+    "url": "git+https://github.com/projectkorea/wetube.git"
   },
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/twmwvision/wetube/issues"
+    "url": "https://github.com/projectkorea/wetube/issues"
   },
-  "homepage": "https://github.com/twmwvision/wetube#readme",
+  "homepage": "https://github.com/projectkorea/wetube#readme",
   "dependencies": {
     "@babel/core": "^7.12.10",
     "@babel/node": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "body-parser": "^1.19.0",
+    "connect-mongo": "^3.2.0",
     "cookie-parser": "^1.4.5",
+    "cross-env": "^7.0.3",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "express-session": "^1.17.1",
     "helmet": "^4.3.1",
     "mongoose": "^5.11.12",
     "morgan": "^1.10.0",
-    "pug": "^3.0.0"
+    "multer": "^1.4.2",
+    "passport": "^0.4.1",
+    "passport-local": "^1.0.0",
+    "passport-local-mongoose": "^6.1.0",
+    "postcss": "^8.0.5",
+    "postcss-loader": "^4.0.2",
+    "pug": "^3.0.0",
+    "sass": "^1.32.6",
+    "sass-loader": "^10.0.2",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
   },
   "devDependencies": {
-    "nodemon": "^2.0.6"
+    "autoprefixer": "^10.0.0",
+    "css-loader": "^4.3.0",
+    "eslint": "^7.19.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-config-prettier": "^7.2.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prettier": "^3.3.1",
+    "mini-css-extract-plugin": "^0.11.2",
+    "nodemon": "^2.0.6",
+    "prettier": "^2.2.1"
   }
 }
