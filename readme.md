@@ -1,4 +1,4 @@
-# Wetube
+# Youtube Full stack Toy Project
 
 Made by JunhaKim
 
