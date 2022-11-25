@@ -1,6 +1,10 @@
 extends layouts/main.pug
-
+include mixins/videoPlayer
 block content
+    +videoPlayer({
+        src:video.fileUrl
+    })
+    
     .video__player
         video(src=`/${video.fileUrl}`)
     .video__info
@@ -10,6 +14,15 @@ block content
         p.video__title=video.description
     .video__comments
         if video.comments.length ===1
-            span.video__comment-number 1 comment
+            span.video__comment-number
+                span#jsCommentNumber 1
+                |  comment
         else
-            span.video__comment-number #{video.comments.length} comments
+            span.video__comment-number
+                span#jsCommentNumber=video.comments.length
+                |  comments
+        form.add_comment#jsAddComment
+            input(type='text', placeholder="Add a comment")
+        ul.video__comment-list
+            each comment in video.comments.reverse()
+                span= comment.text

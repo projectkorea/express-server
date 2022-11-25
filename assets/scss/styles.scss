@@ -1,7 +1,3 @@
 @import "config/_variables.scss";
-
-body {
-  background-color: red;
-}
-//되네?
-//broser세팅
+@import "partials/videoPlayer.scss";
+@import "partials/videoRecorder.scss";

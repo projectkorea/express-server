@@ -3,13 +3,14 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import { localsMiddleware } from "./middlewares.js";
-import routes from "./routes.js";
+import routes from "./routes";
 import passport from "passport";
-import userRouter from "./routers/userRouter.js";
-import videoRouter from "./routers/videoRouter.js";
-import globalRouter from "./routers/globalRouter.js";
+import userRouter from "./routers/userRouter";
+import videoRouter from "./routers/videoRouter";
+import globalRouter from "./routers/globalRouter";
+import apiRouter from "./routers/apiRouter";
 import bodyParser from "body-parser";
+import { localsMiddleware } from "./middlewares";
 import "./passport";
 const app = express();
 
@@ -24,11 +25,6 @@ app.use(morgan("dev"));
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
-app.use(session{
-  secret: process.env.COOKIE_SECRET,
-  resave: true,
-  saveUninitialized: false
-})
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(localsMiddleware);
@@ -36,5 +32,5 @@ app.use(localsMiddleware);
 app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
-
+app.use(routes.api, apiRouter);
 export default app;
