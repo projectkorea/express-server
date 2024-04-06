@@ -1,8 +1,6 @@
-# Youtube Full stack Toy Project
+# Express Server 
 
-Made by JunhaKim
-
-## Page
+## functions
 
 - Home
 - Join

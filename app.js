@@ -3,15 +3,16 @@ import morgan from "morgan";
 import helmet from "helmet";
 import cookieParser from "cookie-parser";
 import session from "express-session";
-import routes from "./routes";
+import bodyParser from "body-parser";
 import passport from "passport";
+import routes from "./routes";
 import userRouter from "./routers/userRouter";
 import videoRouter from "./routers/videoRouter";
 import globalRouter from "./routers/globalRouter";
 import apiRouter from "./routers/apiRouter";
-import bodyParser from "body-parser";
 import { localsMiddleware } from "./middlewares";
 import "./passport";
+
 const app = express();
 
 app.use(
@@ -33,4 +34,5 @@ app.use(routes.home, globalRouter);
 app.use(routes.users, userRouter);
 app.use(routes.videos, videoRouter);
 app.use(routes.api, apiRouter);
+
 export default app;

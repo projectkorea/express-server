@@ -1,6 +1,6 @@
 module.exports = {
   env: {
-    browser: true, //나 브라우저에도 있다.document 함수에 오류표시 안뜸
+    browser: true, // assets/js
     es2021: true,
     node: true,
   },
